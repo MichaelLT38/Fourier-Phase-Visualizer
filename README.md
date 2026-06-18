@@ -42,6 +42,29 @@ Output:
 
 - installer\\Output\\FourierDragApp-Setup.exe
 
+## GitHub Build And Release
+
+This repo includes a workflow at `.github/workflows/release-installer.yml` that:
+
+- Builds the installer on Windows
+- Uploads `FourierDragApp-Setup.exe` as a workflow artifact
+- On version tags (`v*`), creates a GitHub Release and attaches the setup exe
+
+### Trigger A Release Build
+
+1. Commit and push your latest changes.
+2. Create and push a version tag:
+
+```powershell
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+After the workflow finishes, download the setup file from either:
+
+- Actions run artifacts
+- GitHub Releases assets
+
 ## Notes
 
 - If SmartScreen appears on another machine, click More info, then Run anyway.
